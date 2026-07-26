@@ -13,7 +13,6 @@ import WhyChooseUs from './components/WhyChooseUs';
 import AlumniSection from './components/AlumniSection';
 import EventsSection from './components/EventsSection';
 import NewsSection from './components/NewsSection';
-import VirtualTour from './components/VirtualTour';
 import Footer from './components/Footer';
 import StudentPortal from './pages/StudentPortal.jsx';
 import PageView from './pages/PageView.jsx';
@@ -58,7 +57,6 @@ function MainSite() {
         <AlumniSection />
         <EventsSection />
         <NewsSection />
-        <VirtualTour />
       </main>
       <Footer />
     </div>

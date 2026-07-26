@@ -43,37 +43,41 @@ export default function Hero() {
   if (!slides.length) return null;
 
   return (
-    <section className="relative w-full h-[78vh] sm:h-screen min-h-[520px] sm:min-h-[600px] overflow-hidden pt-[96px] sm:pt-[136px]">
-      {/* Background Images */}
-      {slides.map((s, i) => (
-        <div
-          key={i}
-          className={`absolute inset-0 ${i === current ? 'block' : 'hidden'}`}
-          style={{
-            zIndex: 0,
-          }}
-        >
-          <img
-            src={s.image}
-            alt={s.title || 'Hero slide'}
-            className="w-full h-full object-cover object-center"
-          />
-        </div>
-      ))}
+    <section className="relative w-full mt-[96px] sm:mt-[190px] px-2 sm:px-4 md:px-6 overflow-hidden">
+      <div className="relative w-full aspect-[16/9] sm:aspect-auto sm:h-[78vh] sm:min-h-[600px] rounded-3xl overflow-hidden shadow-2xl">
+        <div className="relative w-full h-full">
+          {/* Background Images */}
+          {slides.map((s, i) => (
+            <div
+              key={i}
+              className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                i === current ? 'opacity-100 z-10' : 'opacity-0 z-0'
+              }`}
+              style={{ pointerEvents: 'none' }}
+            >
+              <img
+                src={s.image}
+                alt={s.title || 'Hero slide'}
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+          ))}
 
-      {/* Arrows */}
-      <button
-        onClick={prev}
-        className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-11 md:h-11 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center transition-all backdrop-blur-sm"
-      >
-        <FiChevronLeft size={22} />
-      </button>
-      <button
-        onClick={next}
-        className="absolute right-3 md:right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-11 md:h-11 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center transition-all backdrop-blur-sm"
-      >
-        <FiChevronRight size={22} />
-      </button>
+          {/* Arrows */}
+          <button
+            onClick={prev}
+            className="absolute left-2 sm:left-3 md:left-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center transition-all backdrop-blur-sm"
+          >
+            <FiChevronLeft size={22} />
+          </button>
+          <button
+            onClick={next}
+            className="absolute right-2 sm:right-3 md:right-4 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center transition-all backdrop-blur-sm"
+          >
+            <FiChevronRight size={22} />
+          </button>
+        </div>
+      </div>
 
       {/* Dots */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
